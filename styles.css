@@ -1,0 +1,43 @@
+
+.code {
+  font-family: 'Inconsolata', Consolas, monaco, monospace;
+  color: #ECEFF4;
+}
+
+.background {
+  background-color: #2E3440;
+}
+
+.row-bottom {
+  height: 50%;
+}
+
+.floating {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: floatUp 1.5s ease-in-out forwards;
+  animation-delay: 1s;
+}
+
+span {
+  border-right: .05em solid;
+  animation: caret 1s steps(1) infinite;
+}
+@keyframes caret {
+	50% { color: transparent }
+}
+
+.nord-green {
+  color: #A3BE8C;
+}
+
+@keyframes floatUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
