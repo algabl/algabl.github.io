@@ -16,7 +16,7 @@
   opacity: 0;
   transform: translateY(20px);
   animation: floatUp 1.5s ease-in-out forwards;
-  animation-delay: 1s;
+  animation-delay: 10s;
 }
 
 span {
@@ -31,6 +31,9 @@ span {
   color: #A3BE8C;
 }
 
+.gray {
+  color: #4C566A;
+}
 @keyframes floatUp {
   0% {
     opacity: 0;
