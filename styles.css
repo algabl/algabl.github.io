@@ -8,15 +8,24 @@
   background-color: #2E3440;
 }
 
-.row-bottom {
-  height: 50%;
+.hidden {
+  opacity: 0;
 }
 
-.floating {
+
+.floating-up {
   opacity: 0;
   transform: translateY(20px);
-  animation: floatUp 1.5s ease-in-out forwards;
-  animation-delay: 10s;
+  animation: floatUp 0.5s ease-in-out forwards;
+}
+
+.delay {
+  animation-delay: 0.5s;
+}
+
+.floating-up-reverse {
+  opacity: 1;
+  animation: floatUpReverse 0.5s ease-in-out forwards;
 }
 
 span {
@@ -42,5 +51,16 @@ span {
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes floatUpReverse {
+  0% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+  100% {
+      opacity: 0;
+      transform: translateY(20px);
   }
 }
