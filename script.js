@@ -61,6 +61,10 @@ function submitCustomText() {
     if (customText.length > 0) {
         document.getElementById("funstuff").innerHTML = '';
         StartTextAnimation(customText);
+        toggleFade(dataTextEntry);
+        setTimeout(function() {
+          dataTextInput.value = '';
+        }, 500);
     }
   } else {
     alert('Wait your turn ;)');
