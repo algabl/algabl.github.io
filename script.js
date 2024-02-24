@@ -29,7 +29,6 @@ function StartTextAnimation(dataText) {
       }
       typeWriter(elementId, dataText[index], 0, function() {
         setTimeout(function() {
-          
           index ++;
           animateNextText();
         }, 500);
@@ -59,12 +58,12 @@ function submitCustomText() {
   if (!isAnimationRunning) {
     var customText = dataTextInput.value.split('\n');
     if (customText.length > 0) {
-        document.getElementById("funstuff").innerHTML = '';
-        StartTextAnimation(customText);
-        toggleFade(dataTextEntry);
-        setTimeout(function() {
-          dataTextInput.value = '';
-        }, 500);
+      document.getElementById("funstuff").innerHTML = '';
+      StartTextAnimation(customText);
+      toggleFade(dataTextEntry);
+      setTimeout(function() {
+        dataTextInput.value = '';
+      }, 500);
     }
   } else {
     alert('Wait your turn ;)');
