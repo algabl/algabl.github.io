@@ -10,8 +10,35 @@
 
 .hidden {
   opacity: 0;
+  display: none;
 }
 
+.button-container {
+  z-index: 10; 
+  position: fixed; 
+  bottom: 0; 
+  width: 100%;
+}
+
+#itemList, #dataTextEntry {
+  position: absolute;
+  bottom: 80px;
+  width: 100%;
+}
+
+#funstuff {
+  max-height: 50vh;
+  overflow-y: auto;
+}
+
+#dataTextInput {
+  height: 100px;
+  resize:none;
+}
+
+#dataTextLabel {
+  color: black;
+}
 
 .floating-up {
   opacity: 0;
