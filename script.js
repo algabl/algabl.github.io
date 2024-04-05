@@ -25,7 +25,7 @@ function StartTextAnimation(dataText) {
       var elementId = 'text' + index;
       document.getElementById("funstuff").innerHTML += '<div class="row justify-content-center"><div class="col-1 pt-2"><h3 class="gray">' + (index + 1) + '</h3></div><div class="col-11 col-sm-9 col-md-6"><div id="' + elementId + '"></div></div></div>'
       if (index > 0) {
-        document.getElementById('text' + (index - 1)).innerHTML = '<h1>' + dataText[index-1] +'</h1>';
+        document.getElementById('text' + (index - 1)).textContent = '<h1>' + dataText[index-1] +'</h1>';
       }
       typeWriter(elementId, dataText[index], 0, function() {
         setTimeout(function() {
