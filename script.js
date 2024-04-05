@@ -89,22 +89,24 @@ document.addEventListener('DOMContentLoaded', function (event) {
         }
     });
 
-    const container = document.querySelector(".button-container");
 
-    container.addEventListener("mousemove", function (event) {
-        const cursorGlow = document.querySelector(".cursor-glow");
+    const buttonContainer = document.querySelector('.button-container');
+    const buttons = document.querySelectorAll('.btn-outline-primary');
 
-        if (!cursorGlow) {
-            const newCursorGlow = document.createElement("div");
-            newCursorGlow.classList.add("cursor-glow");
-            container.appendChild(newCursorGlow);
-        }
+    buttonContainer.addEventListener('mousemove', function (event) {
+        // Calculate the mouse position relative to the button container
+        const mouseX = event.clientX + buttonContainer.getBoundingClientRect().left;
+        const mouseY = event.clientY - buttonContainer.getBoundingClientRect().top;
 
-        const mouseX = event.clientX;
-        const mouseY = event.clientY;
+        buttons.forEach(function (button) {
+            // Calculate the mouse position relative to the button
+            const buttonX = mouseX - button.getBoundingClientRect().left;
+            const buttonY = mouseY - button.getBoundingClientRect().top;
 
-        cursorGlow.style.left = mouseX + "px";
-        cursorGlow.style.top = mouseY + "px";
+            // Update the left and top properties of the ::before pseudo-element
+            button.style.setProperty('--mouse-x', buttonX + 'px');
+            button.style.setProperty('--mouse-y', buttonY + 'px');
+        });
     });
 });
 

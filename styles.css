@@ -20,30 +20,46 @@
 }
 
 .btn-outline-primary {
+    --glow: rgb(237, 131, 131, 0.5);
     color: gray !important;
     border: 1px solid transparent !important; /* Add a transparent border */
-    box-shadow: 0 4px 8px rgba(1, 1, 1, 0.093);
     transition: box-shadow 0.3s !important;
+    position: relative !important;
+    overflow: hidden !important;
 }
 
 .btn-outline-primary:hover {
-    box-shadow: 0 8px 16px rgba(144, 144, 144, 0.527);
     background-color: transparent !important;
-    color: white !important;
-    border: 1px solid white !important;
+    color: var(--glow) !important;
+    border: 1px solid var(--glow) !important;
 }
 
+.btn-outline-primary::before {
+    position: absolute;
+    --size: 0;
 
+    height: var(--size);
+    width: var(--size);
+    left: var(--mouse-x, -60px);
+    top: var(--mouse-y, -60px);
+    content: "";
+    background: radial-gradient(circle closest-side, rgba(119, 119, 119, 0.776), transparent);
+    filter: blur(20px); /* Add this line */
 
-.cursor-glow {
-    position:fixed;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    pointer-events: none;
-    z-index: -1;
-    background-color: rgba(144, 144, 151, 0.3); /* Adjust the color and opacity as needed */
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease;
 }
+
+.btn-outline-primary:hover::before {
+    --size: 60px;
+}
+
+.button-container:hover {
+    .btn-outline-primary::before {
+        --size: 60px;
+    }
+}
+
 
 #itemList, #dataTextEntry {
   position: absolute;
