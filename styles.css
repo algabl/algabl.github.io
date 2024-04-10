@@ -1,3 +1,11 @@
+.btn.btn-outline-primary {
+    font-size: 2rem !important;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+}
+
 .code {
   font-family: 'Inconsolata', Consolas, monaco, monospace;
   color: #ECEFF4;
@@ -13,35 +21,26 @@
 }
 
 .button-container {
-  z-index: 10; 
+  z-index: 1; 
   position: fixed; 
   bottom: 0; 
   width: 100%;
 }
 
-.btn-outline-primary {
-    --glow: rgb(237, 131, 131, 0.5);
-    color: gray !important;
-    border: 1px solid transparent !important; /* Add a transparent border */
+.glow-effect {
     transition: box-shadow 0.3s !important;
     position: relative !important;
     overflow: hidden !important;
+    border-radius: 0.75rem !important;
 }
 
-.btn-outline-primary:hover {
-    background-color: transparent !important;
-    color: var(--glow) !important;
-    border: 1px solid var(--glow) !important;
-}
-
-.btn-outline-primary::before {
+.glow-effect::before{
     position: absolute;
-    --size: 0;
-
+    --size: 60px;
     height: var(--size);
     width: var(--size);
-    left: var(--mouse-x, -60px);
-    top: var(--mouse-y, -60px);
+    left: var(--mouse-x);
+    top: var(--mouse-y);
     content: "";
     background: radial-gradient(circle closest-side, rgba(119, 119, 119, 0.776), transparent);
     filter: blur(20px); /* Add this line */
@@ -49,22 +48,25 @@
     transform: translate(-50%, -50%);
     transition: width 0.2s ease, height 0.2s ease;
 }
-
-.btn-outline-primary:hover::before {
-    --size: 60px;
+ 
+.btn-outline-primary {
+    --glow: rgb(237, 131, 131, 0.5);
+    color: gray !important;
+    border: 1px solid transparent !important; /* Add a transparent border */
 }
 
-.button-container:hover {
-    .btn-outline-primary::before {
-        --size: 60px;
-    }
+.btn-outline-primary:hover {
+    background-color: transparent !important;
+    /* color: var(--glow) !important;
+    border: 1px solid var(--glow) !important; */
 }
 
 
 #itemList, #dataTextEntry {
   position: absolute;
-  bottom: 80px;
+  bottom: 150px;
   width: 100%;
+  z-index: 100;
 }
 
 #funstuff {

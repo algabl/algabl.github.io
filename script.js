@@ -90,15 +90,19 @@ document.addEventListener('DOMContentLoaded', function (event) {
     });
 
 
-    const buttonContainer = document.querySelector('.button-container');
-    const buttons = document.querySelectorAll('.btn-outline-primary');
+    const glowElements = document.querySelectorAll('.glow-effect');
 
-    buttonContainer.addEventListener('mousemove', function (event) {
+    glowElements.forEach(function (button) {
+        button.style.setProperty('--mouse-x', '-100%');
+        button.style.setProperty('--mouse-y', '-100%');
+    });
+
+    document.addEventListener('mousemove', function (event) {
         // Calculate the mouse position relative to the button container
-        const mouseX = event.clientX + buttonContainer.getBoundingClientRect().left;
-        const mouseY = event.clientY - buttonContainer.getBoundingClientRect().top;
+        const mouseX = event.clientX;
+        const mouseY = event.clientY;
 
-        buttons.forEach(function (button) {
+        glowElements.forEach(function (button) {
             // Calculate the mouse position relative to the button
             const buttonX = mouseX - button.getBoundingClientRect().left;
             const buttonY = mouseY - button.getBoundingClientRect().top;
