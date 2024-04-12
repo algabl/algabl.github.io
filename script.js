@@ -114,6 +114,11 @@ toggleButton.addEventListener('click', () => {
         toggleFade(dataTextEntry);
     }
     toggleFade(itemList);
+    // flip the arrow icon on the button
+    let toggleButtonIcon = toggleButton.querySelector('i');
+
+    toggleButtonIcon.classList.toggle('fa-angle-up');
+    toggleButtonIcon.classList.toggle('fa-angle-down');
 });
 
 customButton.addEventListener('click', () => {
