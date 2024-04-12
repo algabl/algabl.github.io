@@ -76,40 +76,34 @@ function submitCustomText() {
 
 
 
-document.addEventListener('DOMContentLoaded', function (event) {
+$(document).ready(function () {
     var dataText = ["print('Hello world!');", "# I'm Alex Black", "# An information systems student at Brigham Young University"];
     StartTextAnimation(dataText);
 
-    var replayButton = document.getElementById('replayButton');
-
-    replayButton.addEventListener('click', function () {
+    $('#replayButton').click(function () {
         if (!isAnimationRunning) {
-            document.getElementById("funstuff").innerHTML = '';
+            $("#funstuff").html('');
             StartTextAnimation(dataText);
         }
     });
 
+    var glowElements = $('.glow-effect');
 
-    const glowElements = document.querySelectorAll('.glow-effect');
+    glowElements.css('--mouse-x', '-100px');
+    glowElements.css('--mouse-y', '-100px');
 
-    glowElements.forEach(function (button) {
-        button.style.setProperty('--mouse-x', '-100%');
-        button.style.setProperty('--mouse-y', '-100%');
-    });
+    $(document).mousemove(function (event) {
+        var mouseX = event.pageX;
+        var mouseY = event.pageY;
 
-    document.addEventListener('mousemove', function (event) {
-        // Calculate the mouse position relative to the button container
-        const mouseX = event.clientX;
-        const mouseY = event.clientY;
+        glowElements.each(function () {
+            var glowSize = parseFloat($(this).css('--glow-size'));
+            var buttonX = mouseX - $(this).offset().left - glowSize / 2;
+            var buttonY = mouseY - $(this).offset().top - glowSize / 2;
 
-        glowElements.forEach(function (button) {
-            // Calculate the mouse position relative to the button
-            const buttonX = mouseX - button.getBoundingClientRect().left;
-            const buttonY = mouseY - button.getBoundingClientRect().top;
-
-            // Update the left and top properties of the ::before pseudo-element
-            button.style.setProperty('--mouse-x', buttonX + 'px');
-            button.style.setProperty('--mouse-y', buttonY + 'px');
+            // Update the --mouse-x and --mouse-y properties
+            $(this).css('--mouse-x', buttonX + 'px');
+            $(this).css('--mouse-y', buttonY + 'px');
         });
     });
 });
