@@ -109,17 +109,17 @@ $(document).ready(function () {
 });
 
 
-toggleButton.addEventListener('click', () => {
-    if (dataTextEntry.isOpen) {
-        toggleFade(dataTextEntry);
-    }
-    toggleFade(itemList);
-    // flip the arrow icon on the button
-    let toggleButtonIcon = toggleButton.querySelector('i');
+// toggleButton.addEventListener('click', () => {
+//     if (dataTextEntry.isOpen) {
+//         toggleFade(dataTextEntry);
+//     }
+//     toggleFade(itemList);
+//     // flip the arrow icon on the button
+//     let toggleButtonIcon = toggleButton.querySelector('i');
 
-    toggleButtonIcon.classList.toggle('fa-angle-up');
-    toggleButtonIcon.classList.toggle('fa-angle-down');
-});
+//     toggleButtonIcon.classList.toggle('fa-angle-up');
+//     toggleButtonIcon.classList.toggle('fa-angle-down');
+// });
 
 customButton.addEventListener('click', () => {
     if (itemList.isOpen) {
